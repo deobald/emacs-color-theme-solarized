@@ -55,7 +55,8 @@ will use the 256 degraded color mode."
     (violet  "#6c71c4" "#5859b7" "#5f5faf" "#ff00ff")
     (blue    "#268bd2" "#2075c7" "#0087ff" "#0000ee")
     (cyan    "#2aa198" "#259185" "#00afaf" "#00cdcd")
-    (green   "#859900" "#728a05" "#5f8700" "#00cd00"))
+    (green   "#859900" "#728a05" "#5f8700" "#00cd00")
+    (lgreen  "#C0D9AF" "#C0D9AF" "#C0D9AF" "#C0D9AF"))
   "This is a table of all the colors used by the Solarized color theme. Each
    column is a different set, one of which will be chosen based on term
    capabilities, etc.")
@@ -86,6 +87,7 @@ will use the 256 degraded color mode."
           (blue      (find-color 'blue))
           (cyan      (find-color 'cyan))
           (green     (find-color 'green))
+          (lgreen    (find-color 'lgreen))
           (bold      (if solarized-bold 'bold 'normal))
           (underline (if solarized-underline t nil))
           (italic    (if solarized-italic 'italic 'normal)))
@@ -103,7 +105,7 @@ will use the 256 degraded color mode."
          (linum ((t (:foreground ,base01 :background ,base02))))
          (header-line ((t (:foreground ,base0 :background ,base2))))
          (highlight ((t (:background ,base02))))
-         (hl-line ((t (:background ,base02))))
+         (hl-line ((t (:background ,lgreen)))) ;; base02
          (isearch ((t (:foreground ,yellow :inverse-video t))))
          (lazy-highlight ((t (:background ,base2 :foreground ,base00))))
          (link ((t (:foreground ,violet :underline ,underline))))
@@ -260,8 +262,8 @@ will use the 256 degraded color mode."
          (gnus-summary-normal-ticked ((t (:foreground ,base3))))
          (gnus-summary-normal-undownloaded ((t (:foreground ,base2))))
          ;; Flymake
-         (flymake-errline ((t (:background ,orange))))
-         (flymake-warnline ((t (:background ,violet))))
+         (flymake-errline ((((class color)) (:underline "red"))))
+         (flymake-warnline ((((class color)) (:underline "yellow"))))
          ;; whitespace
          (whitespace-empty ((t (:foreground ,red))))
          (whitespace-hspace ((t (:foreground ,orange))))
